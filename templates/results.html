@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Search Results</title>
+</head>
+
+<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto py-8">
+        <!-- Search Query Heading -->
+        <h1 class="text-2xl font-bold text-center mb-8">Search Results for "{{ translated_query }}"</h1>
+
+        <!-- Results Table -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <table class="w-full table-auto">
+                <thead>
+                    <tr class="text-left text-gray-300">
+                        <th class="pb-2">Title</th>
+                        <th class="pb-2">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                    <tr class="bg-gray-700 hover:bg-gray-600 transition-colors">
+                        <td class="p-4">
+                            <a href="{{ result.url }}" target="_blank" class="text-blue-400 hover:underline">
+                                {{ result.title }}
+                            </a>
+                        </td>
+                        <td class="p-4">
+                            {{ result.desc }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Back Button -->
+        <div class="mt-8 text-center">
+            <a href="/" 
+               class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500 transition">
+                Back to Search
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 h-16 flex items-center justify-center">
+        <p class="text-gray-400">© 2024 CLIR App. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

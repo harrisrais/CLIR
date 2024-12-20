@@ -1,0 +1,5 @@
+flask
+googletrans==4.0.0-rc1
+sentence-transformers
+pandas
+scikit-learn
